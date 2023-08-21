@@ -1,0 +1,93 @@
+.LoginContent__container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    
+}
+
+.LoginContent__firstContent {
+    width: 70%;
+    height: 100%;
+    background-color: rgb(58, 170, 182);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    gap: 20px;
+    color: white;
+
+}
+
+.LoginContent__firstContentHeader {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    top: 40px;
+
+}
+
+.LoginContent__firstContentHeader h1{
+    font-size: 28px;
+    font-weight: 500;
+
+}
+
+.LoginContent__firstContentHeader h2{
+    font-size: 22px;
+    font-weight: 400; 
+
+}
+
+.LoginContent__secondContent {
+    width: 30%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: aliceblue;
+ 
+}
+
+.LoginContent__secondContentHeader {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    top: 60px;
+    position: absolute;
+
+}
+
+.LoginContent__secondContentHeader h2{
+    font-size: 20px;
+    font-weight: 600;
+
+}
+
+.LoginContent__imgIcon {
+    width: 22%;
+    height: auto;
+    
+}
+
+.LoginContent__students {
+    width: 80%;
+    height: 70%;
+    background-color: #ffffff; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  
+    border-radius: 4px;
+    border: 4px solid white;
+
+}
