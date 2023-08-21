@@ -1,0 +1,18 @@
+.Input__main{
+    width: 100%;
+    height: 40px;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    padding: 8px 12px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+    border-radius: 4px;
+    
+}
+
+.Input__main:focus{
+    outline: none;
+    border-color: #1890ff;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+
+}

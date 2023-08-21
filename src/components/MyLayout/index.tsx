@@ -1,16 +1,19 @@
 import  { useState } from 'react';
 import {
-    FormOutlined,
+  CommentOutlined,
+  FolderOpenOutlined,
+  FormOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   ReadOutlined,
-  TeamOutlined,
   UploadOutlined,
   UserOutlined,
-  VideoCameraOutlined,
+  
 } from '@ant-design/icons';
 import { Layout, Menu, Button, theme } from 'antd';
+import { Link } from 'react-router-dom';
 import "./styles/myLayout.css"
+
 const { Header, Sider, Content } = Layout;
 
 
@@ -20,10 +23,10 @@ export interface IMyLayoutProps {
 }
 
 export function MyLayout ({ component, selectedKeys }:IMyLayoutProps) {
-    const [collapsed, setCollapsed] = useState(false);
-    const {
-        token: { colorBgContainer },
-    }     = theme.useToken();
+  const [collapsed, setCollapsed] = useState(false);
+  const {
+    token: { colorBgContainer },
+  }= theme.useToken();
 
   return (
     <Layout>
@@ -40,27 +43,32 @@ export function MyLayout ({ component, selectedKeys }:IMyLayoutProps) {
             {
               key: '1',
               icon: <UserOutlined />,
-              label: 'Home',
+              label: <Link to="/home">Home</Link>,
             },
             {
               key: '2',
-              icon: <TeamOutlined />,
-              label: 'Fórum',
+              icon: <CommentOutlined />,
+              label: <Link to="/forum">Fórum</Link>,
             },
             {
               key: '3',
+              icon: <FolderOpenOutlined />,
+              label: 'Aulas / Material',
+            },
+            {
+              key: '4',
               icon: <ReadOutlined />,
               label: 'Avaliações',
             },
             {
-                key: '4',
+                key: '5',
                 icon: <FormOutlined />,
-                label: 'Notas',
+                label: <Link to="/notas">Notas</Link>,
             },
             {
-                key: '5',
+                key: '6',
                 icon: <UploadOutlined />,
-                label: 'Upload',
+                label: <Link to="/upload">Upload</Link>,
             },
           ]}
         />

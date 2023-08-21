@@ -1,0 +1,14 @@
+.RegisterStudent__container {
+    width: 100%;
+    height: auto;
+
+}
+
+.RegisterStudent__container form {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}

@@ -3,8 +3,11 @@ import { verifyCredentials } from "../../lib/utils/login/verifyCredentials";
 import { openNotificationWithIcon } from "../../lib/utils/notification/notification";
 import "./style/loginForm.css";
 
-
-export function LoginForm () {
+interface ILoginFormProps {
+    register:boolean;
+    setRegister:(update: (prev: boolean) => boolean) => void;
+}
+export function LoginForm ({register, setRegister}:ILoginFormProps) {
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
 
@@ -69,7 +72,7 @@ export function LoginForm () {
             </form>
             <div className="LoginForm__options">
                 <a href="#/">Esqueci minha senha</a>
-                <a href="#/">Cadastrar</a>
+                <a href="#/" onClick={() => setRegister( (current:boolean) => !current)}>Cadastrar</a>
             </div>
            
         </div>

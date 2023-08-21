@@ -3,10 +3,13 @@ import { Route, Routes } from 'react-router-dom';
 import { LoginPage } from './pages/login';
 import { ForumPage } from './pages/forum';
 import { HomePage } from './pages/home';
+import { UploadPage } from './pages/upload';
+import { AcademyPage } from './pages/academy';
 
 
 function App() {
   return (
+    
     <Routes>
       <Route 
         path='/'
@@ -29,9 +32,22 @@ function App() {
         }
       />
 
+      <Route 
+        path='/upload'
+        element={
+          <UploadPage/>
+        }
+      />
+
+      <Route 
+        path='/notas'
+        element={
+          <AcademyPage/>
+        }
+      />
+
       
-        
-      
+
       
     </Routes>
   );

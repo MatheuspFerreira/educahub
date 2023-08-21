@@ -2,8 +2,11 @@ import { LoginForm } from "./LoginForm";
 import students  from "../../assets/students.jpg"
 import studentIcon from "../../assets/studentIcon.webp"
 import "./style/loginContent.css"
+import { useState } from "react";
+import { Register } from "../register";
 
 export function LoginContent (){
+    const [register, setRegister] = useState<boolean>(false);
     const newDate = new Date();
     const year = newDate.getFullYear();
 
@@ -24,7 +27,7 @@ export function LoginContent (){
             </div>
             <div className="LoginContent__secondContent">
                 <div className="LoginContent__secondContentHeader">
-                    <h2>Bem-vindo de volta!</h2>
+                    <h2>{register ? "Registar" : "Bem-vindo de volta!"}</h2>
                     <img 
                         src={studentIcon} 
                         alt="StudentIcon"
@@ -32,7 +35,17 @@ export function LoginContent (){
                     />
 
                 </div>              
-                <LoginForm />
+                { 
+                    register
+                    ?
+                    <Register />
+                    :
+                    <LoginForm 
+                        register={register}
+                        setRegister={setRegister}
+                    
+                    />
+                }
                 
             </div>
             
