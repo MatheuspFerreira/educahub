@@ -3,6 +3,7 @@
     height: 100vh;
     display: flex;
     
+    
 }
 
 .LoginContent__firstContent {
@@ -96,6 +97,32 @@
     .LoginContent__secondContentHeader {
         top: 3%;
     
+    }
+    
+}
+
+@media screen and (max-width:1099px){ 
+    .LoginContent__container {
+        flex-direction: column-reverse;  
+        
+    }
+    
+    .LoginContent__firstContent {
+        width: 100%;
+        height: 50%; 
+        display: none;    
+    
+    }
+
+    .LoginContent__secondContent {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background-color: aliceblue;
     }
     
 }

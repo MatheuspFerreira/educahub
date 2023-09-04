@@ -1,7 +1,12 @@
 import { ColumnsType } from "antd/es/table";
 import { MyLayout } from "../MyLayout";
+import { Space, Tag, Tooltip } from "antd";
+import { CheckOutlined, SearchOutlined } from "@ant-design/icons";
+import { AcademyTable } from "./AcademyTable";
+import { useState } from "react";
 
 export function Academy (){
+    const [loading, setLoading]= useState<boolean>(false)
 
     const columns: ColumnsType<any> = [
         {
@@ -10,22 +15,17 @@ export function Academy (){
             dataIndex: 'status',
             render: (_, current) => (
                 
+                
                 <>
                 
-                    {current.status.map((statusItem: string) => {
+                    {current.status.map((statusItem: string) => {        
                         
                         let color = ''
-                        if (statusItem.toLocaleLowerCase() === 'aberta') {
-                            color = 'orange';
-    
-                        }else if(statusItem.toLocaleLowerCase() === 'paga' || statusItem.toLocaleLowerCase() === 'aprovada'){
+                        if (statusItem.toLocaleLowerCase() === 'ativo') {
                             color = 'green';
-    
-                        }else if(statusItem.toLocaleLowerCase() === 'cancelada'){
-                            color = 'red';
-    
+
                         }else {
-                            color = 'volcano';
+                            color = 'red';
     
                         }
                         return (
@@ -38,40 +38,20 @@ export function Academy (){
             ),
         },    
         {
-          title: 'Competência',
-          dataIndex: 'competencia',
-          key: 'competencia',
+          title: 'Nome',
+          dataIndex: 'nome',
+          key: 'nome',
         },
         {
-            title: 'Fechamento previsto',
-            dataIndex: 'fechamento',
-            key: 'fechamento',
+            title: 'Matricula',
+            dataIndex: 'matricula',
+            key: 'matricula',
         },
         {
-          title: 'Valor',
-          dataIndex: 'valor',
-          key: 'valor',
-        },
-        {
-            title: 'Data de aprovação',
-            dataIndex: 'dataAprovacao',
-            key: 'dataAprovacao',
-        },
-        {
-            title: 'Aprovador',
-            dataIndex: 'aprovador',
-            key: 'aprovador',
-        }, 
-        {
-            title: 'Cód Revenda',
-            dataIndex: 'codrevenda',
-            key: 'codrevenda',
-        },
-        {
-            title: 'Razão Revenda',
-            dataIndex: 'razaoRevenda',
-            key: 'razaoRevenda',
-        },
+          title: 'Turma',
+          dataIndex: 'turma',
+          key: 'turma',
+        },    
         {
             title: 'Ações',
             key: 'action',
@@ -80,131 +60,34 @@ export function Academy (){
                 <>
                     {                      
                         
-                        <Space size="middle">
-                            { 
-                                permission !== '**' && verifyActionsDay && record.competencia === competencia && record.status[0] === 'aberta' 
-                                ?
-                                <Tooltip 
+                        <Space size="middle">                        
+                      
+                            <Tooltip 
                                     placement="bottom" 
-                                    title='Aprovar fatura'            
+                                    title='Avaliações'            
                                 >
-                                    <a 
-                                        href='#/' 
-                                        className='FaturasConfig__iconsApprove'
-                                        onClick={()=>{
-                                            console.log(record)
-                                            setApprove({
-                                                ...approve, 
-                                                cdgFatura:record.key, 
-                                                state:true,
-                                                competencia:record?.competencia
-                                            })
-                                            setValues({...values, codrevenda:record.codrevenda?.toString()})
+                                <a 
+                                    href='#/' 
+                                    className='FaturasConfig__iconsApprove'
+                                    onClick={()=>{
+                                        console.log(record)
+                                           
                                             
-                                        }}
-                                    >
-                                        <CheckOutlined />
-                                    </a>
+                                    }}
+                                >
+                                    <CheckOutlined />
+                                </a>
         
-                                </Tooltip>
-                                :
-                                permission === '**' && record.status[0] === 'aberta' 
-                                &&
-                                <Tooltip 
-                                    placement="bottom" 
-                                    title='Aprovar fatura'            
-                                >
-                                    <a 
-                                        href='#/' 
-                                        className='FaturasConfig__iconsApprove'
-                                        onClick={()=>{
-                                            console.log(record)
-                                            setApprove({
-                                                ...approve, 
-                                                cdgFatura:record.key, 
-                                                state:true,
-                                                competencia:record?.competencia
-                                            })
-                                            setValues({...values, codrevenda:record.codrevenda?.toString()})
-                                            
-                                        }}
-                                    >
-                                        <CheckOutlined />
-                                    </a>
-        
-                                </Tooltip>
-                                
-                            }
-    
-                            {  
-                                permission !== '**' && verifyActionsDay && record.status[0] === 'aberta'
-                                ?
-                                <Tooltip 
-                                    placement="bottom" 
-                                    title='Contestar fatura'            
-                                >
-                                    <a 
-                                        href='#/' 
-                                        className='FaturasConfig__iconsContest'
-                                        onClick={()=>{
-                                            setContest({
-                                                ...contest, 
-                                                cdgFatura:record.key, 
-                                                state:true,
-                                                competencia:record?.competencia
-                                            })
-                                            setValues({...values, codrevenda:record.codrevenda?.toString()})
-                                                                                
-                                        }}
-                                    >
-                                        <WarningOutlined />
-                                    </a>
-    
-                                </Tooltip>
-                                :
-                                permission === '**' && record.status[0] === 'aberta' 
-                                &&
-                                <Tooltip 
-                                    placement="bottom" 
-                                    title='Contestar fatura'            
-                                >
-                                    <a 
-                                        href='#/' 
-                                        className='FaturasConfig__iconsContest'
-                                        onClick={()=>{
-                                            setContest({
-                                                ...contest, 
-                                                cdgFatura:record.key, 
-                                                state:true,
-                                                competencia:record?.competencia
-                                            })
-                                            setValues({...values, codrevenda:record.codrevenda?.toString()})
-                                                                                
-                                        }}
-                                    >
-                                        <WarningOutlined />
-                                    </a>
-    
-                                </Tooltip>
-                            }
+                            </Tooltip>                           
                             <Tooltip 
                                 placement="bottom" 
-                                title='Detalhar fatura'            
+                                title='Notas'            
                             >
                                 <a 
                                     href='#/' 
                                     className='FaturasConfig__iconsDetails'
                                     onClick={()=>{
-                                        setDetails(
-                                            {
-                                                ...details, 
-                                                competencia:record.competencia, 
-                                                codrevenda:record.codrevenda.toString(),
-                                                razaoRevenda:record.razaoRevenda,
-                                                state:true
-                                            }
-                                        )
-                                        handleGetFaturasItens(record.competencia, record.codrevenda.toString())
+                                      
                                       
                                     }}
                                 >
@@ -212,33 +95,9 @@ export function Academy (){
                                 </a>
     
                             </Tooltip>
-                            
-            
+                                        
                         </Space>
-                        // :                       
-                        // record.status.map((statusItem: string) => {
-                        //     let color = ''
-                        //     let text = ''
-                        //     if(statusItem.toLocaleLowerCase() === 'paga' || statusItem.toLocaleLowerCase() === 'aprovada'){
-                        //         color = 'green';
-                        //         text = 'Fatura aprovada'
-        
-                        //     }else if(statusItem.toLocaleLowerCase() === 'cancelada'){
-                        //         color = 'red';
-                        //         text = 'Cancelada'
-        
-                        //     }else if(statusItem.toLocaleLowerCase() === 'aguardando contestação'){
-                        //         color = 'volcano';
-                        //         text = 'Em Análise'
-        
-                        //     }
-                        //     return (
-                        //         <Tag color={color} key={statusItem} style={{padding:'3px'}}>
-                        //             {text.toUpperCase()}
-                        //         </Tag>
-                        //     );
-                        // })
-                    
+                   
                     }
                 </>
             
@@ -246,11 +105,20 @@ export function Academy (){
         }   
     ];
 
+   
+      
+
     
     return (
         <MyLayout
             component={
-                <></>
+                <AcademyTable
+                 
+                    columns={columns}
+                    loading={loading}
+
+
+                />
             }
             selectedKeys="5"
         />

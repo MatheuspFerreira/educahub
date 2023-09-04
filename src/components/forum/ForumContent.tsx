@@ -58,15 +58,13 @@ export default function ForumContent () {
         <div className="ForumContent_container">
             <ForumContainer 
                 disabled={true}
-                text={`Explore nosso Fórum Livre de Bate Papo, um espaço essencial em nossa plataforma educacional. Aqui, 
+                text={
+                    `Explore nosso Fórum Livre de Bate Papo, um espaço essencial em nossa plataforma educacional. Aqui, 
                     alunos e professores convergem para debater variados temas, de conceitos acadêmicos a interesses pessoais, 
                     fomentando uma comunidade dinâmica.
                     Questões são respondidas, dúvidas esclarecidas e experiências compartilhadas, unindo conhecimento formal e prático. 
                     Promovemos um ambiente colaborativo, quebrando barreiras hierárquicas para estimular debates autênticos.
-                    Nossa visão é criar um local seguro e enriquecedor, onde aprendizes e instrutores dialogam sem restrições.
-                    O Fórum Livre de Bate Papo é o espaço onde sua jornada educacional se expande, moldada por conexões e discussões que 
-                    transcendem a sala de aula. Para participar basta digitar seu texto no quadro abaixo e clicar em postar.
-
+                    
                 `
                 }
                 name="Educa Hub"
